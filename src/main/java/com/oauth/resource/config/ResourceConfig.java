@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
@@ -22,14 +23,13 @@ public class ResourceConfig {
                 j.jwkSetUri("http://localhost:9000/oauth2/jwks");
             });
         }).authorizeHttpRequests (h -> {
-                    h.requestMatchers("/user/**").permitAll();
+                    h.requestMatchers("/user/register/**").permitAll();
                     h.anyRequest().authenticated();
                 }
         );
 
         config.corsConfigurationSource(http);
         return http.build();
-
     }
 
 }

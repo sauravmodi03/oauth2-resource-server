@@ -1,23 +1,22 @@
 package com.oauth.resource.dto;
 
-import com.oauth.resource.modal.UsersEntity;
-import lombok.Getter;
+import com.oauth.resource.modal.user.Gender;
+import lombok.Data;
 import org.springframework.stereotype.Component;
 
-import java.io.Serializable;
+import java.util.Date;
 
 @Component
-@Getter
-public class UsersDto implements Serializable {
+@Data
+public class UserDetailsDto {
 
-    private String firstName;
-    private String lastName;
-    private String email;
     private String contact;
     private String address1;
     private String address2;
     private int zipcode;
+    private String state;
     private String city;
     private String country;
-
+    private Gender gender;
+    private Date dob;
 }

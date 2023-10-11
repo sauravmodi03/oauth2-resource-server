@@ -1,8 +1,9 @@
 package com.oauth.resource.services;
 
 
-import com.oauth.resource.dto.UsersDto;
-import com.oauth.resource.modal.UsersEntity;
+import com.oauth.resource.dto.UserDto;
+import com.oauth.resource.modal.user.User;
+import com.oauth.resource.modal.user.UserDetails;
 import com.oauth.resource.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -20,24 +21,36 @@ public class UserServiceImpl implements UserService {
      * @param email
      * @return
      */
+
+
     @Override
-    public UsersEntity getUserByEmail(String email) {
+    public User getUserByEmail(String email) {
         return userRepository.findByEmail(email);
+    }
+
+    /**
+     * @param username
+     * @return
+     */
+    @Override
+    public User getUserByUsername(String username) {
+        return userRepository.findByUsername(username);
     }
 
     /**
      * @param user
      */
     @Override
-    public void registerCustomer(UsersDto user) {
-        userRepository.save(new UsersEntity(user));
+    public void registerCustomer(UserDto user) {
+        userRepository.save(new User(user));
     }
 
     /**
      * @return
      */
     @Override
-    public List<UsersEntity> findAll() {
+    public List<User> findAll() {
         return userRepository.findAll();
     }
+
 }

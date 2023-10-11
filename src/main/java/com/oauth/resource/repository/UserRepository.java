@@ -1,13 +1,15 @@
 package com.oauth.resource.repository;
 
 
-import com.oauth.resource.modal.UsersEntity;
+import com.oauth.resource.modal.user.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface UserRepository extends JpaRepository<UsersEntity, Long> {
+public interface UserRepository extends JpaRepository<User, Long> {
 
-    UsersEntity findByEmail(String email);
+    User findByEmail(String email);
+
+    User findByUsername(String username);
 
 }

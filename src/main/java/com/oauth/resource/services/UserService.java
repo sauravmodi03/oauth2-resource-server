@@ -1,16 +1,22 @@
 package com.oauth.resource.services;
 
 
-import com.oauth.resource.dto.UsersDto;
-import com.oauth.resource.modal.UsersEntity;
+import com.oauth.resource.dto.UserDto;
+import com.oauth.resource.modal.user.User;
+import com.oauth.resource.modal.user.UserDetails;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public interface UserService {
 
-    UsersEntity getUserByEmail(String email);
+    User getUserByEmail(String email);
 
-    void registerCustomer(UsersDto user);
+    User getUserByUsername(String username);
 
-    Iterable<UsersEntity> findAll();
+    void registerCustomer(UserDto user);
+
+    List<User> findAll();
+
 }
