@@ -1,6 +1,6 @@
 package com.oauth.resource.dto;
 
-import com.oauth.resource.entity.UsersEntity;
+import com.oauth.resource.modal.UsersEntity;
 import lombok.Getter;
 import org.springframework.stereotype.Component;
 

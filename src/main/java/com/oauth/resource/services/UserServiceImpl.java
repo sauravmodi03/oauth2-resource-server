@@ -2,15 +2,16 @@ package com.oauth.resource.services;
 
 
 import com.oauth.resource.dto.UsersDto;
-import com.oauth.resource.entity.UsersEntity;
+import com.oauth.resource.modal.UsersEntity;
 import com.oauth.resource.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
-@Service
+@Component
 public class UserServiceImpl implements UserService {
+
 
     @Autowired
     private UserRepository userRepository;

@@ -2,7 +2,7 @@ package com.oauth.resource.services;
 
 
 import com.oauth.resource.dto.UsersDto;
-import com.oauth.resource.entity.UsersEntity;
+import com.oauth.resource.modal.UsersEntity;
 import org.springframework.stereotype.Service;
 
 @Service

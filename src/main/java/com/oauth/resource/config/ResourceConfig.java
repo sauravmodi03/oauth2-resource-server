@@ -4,6 +4,8 @@ import lombok.AllArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
@@ -20,7 +22,7 @@ public class ResourceConfig {
                 j.jwkSetUri("http://localhost:9000/oauth2/jwks");
             });
         }).authorizeHttpRequests (h -> {
-                    h.requestMatchers("/").permitAll();
+                    h.requestMatchers("/user/**").permitAll();
                     h.anyRequest().authenticated();
                 }
         );
@@ -29,4 +31,5 @@ public class ResourceConfig {
         return http.build();
 
     }
+
 }

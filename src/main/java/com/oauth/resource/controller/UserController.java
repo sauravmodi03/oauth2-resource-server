@@ -1,15 +1,21 @@
 package com.oauth.resource.controller;
 
-import com.oauth.resource.dto.UsersDto;
+import com.oauth.resource.services.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
+@RequestMapping("user")
 public class UserController {
 
-    @GetMapping("getuserinfo")
+    @Autowired
+    UserService userService;
+
+    @GetMapping("all")
     public String getUser(){
-        return "User Details here";
+        return userService.findAll().toString();
     }
 
 }

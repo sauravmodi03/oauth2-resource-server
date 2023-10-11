@@ -1,18 +1,19 @@
-package com.oauth.resource.entity;
+package com.oauth.resource.modal;
 
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.oauth.resource.dto.UsersDto;
+import com.oauth.resource.utility.Mapper;
 import jakarta.persistence.*;
-import lombok.Data;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
-import org.springframework.context.annotation.Bean;
+
+import java.io.Serializable;
+
 
 @Entity
 @Table(name = "users")
-@Data
 @NoArgsConstructor
-public class UsersEntity {
+public class UsersEntity implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -55,6 +56,14 @@ public class UsersEntity {
         zipcode = usersDto.getZipcode();
         city = usersDto.getCity();
         country = usersDto.getCountry();
+    }
+
+    public String toString(){
+        try {
+            return Mapper.mapper.writeValueAsString(this);
+        } catch (JsonProcessingException e) {
+            throw new RuntimeException(e);
+        }
     }
 
 }
