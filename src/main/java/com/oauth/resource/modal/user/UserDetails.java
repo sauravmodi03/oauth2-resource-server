@@ -47,10 +47,11 @@ public class UserDetails implements Serializable {
     @Column(name = "contry")
     private String country;
 
-
     @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "user_id", referencedColumnName = "id")
+    @JoinColumn(name = "user_email", referencedColumnName = "email")
     private User user;
+
 
     public UserDetails(UserDetailsDto dto) {
         gender = dto.getGender();

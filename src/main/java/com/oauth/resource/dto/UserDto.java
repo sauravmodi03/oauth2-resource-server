@@ -1,6 +1,7 @@
 package com.oauth.resource.dto;
 
 import com.oauth.resource.modal.user.Gender;
+import com.oauth.resource.modal.user.User;
 import lombok.Data;
 import lombok.Getter;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -18,6 +19,6 @@ public class UserDto implements Serializable {
     private String email;
     private String username;
     private String password;
-    private UserDetailsDto userDetailsDto;
+    private UserDetailsDto userDetails;
 
 }

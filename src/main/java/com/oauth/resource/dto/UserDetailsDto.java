@@ -19,4 +19,5 @@ public class UserDetailsDto {
     private String country;
     private Gender gender;
     private Date dob;
+
 }

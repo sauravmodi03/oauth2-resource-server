@@ -2,12 +2,16 @@ package com.oauth.resource.modal.user;
 
 import com.oauth.resource.dto.UserDto;
 import jakarta.persistence.*;
+import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.io.Serializable;
 
 @Entity
 @Table(name = "users")
 @NoArgsConstructor
-public class User {
+@Data
+public class User implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -19,10 +23,10 @@ public class User {
     @Column(name="lastname")
     private String lastLame;
 
-    @Column(name = "email")
+    @Column(name = "email", unique = true)
     private String email;
 
-    @Column(name = "username")
+    @Column(name = "username", unique = true)
     private String username;
 
     @Column(name = "password")
@@ -37,7 +41,6 @@ public class User {
         email = dto.getEmail();
         username = dto.getUsername();
         password = dto.getPassword();
-        userDetails = new UserDetails(dto.getUserDetailsDto());
     }
 
 }
